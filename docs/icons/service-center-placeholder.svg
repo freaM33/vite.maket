@@ -1,0 +1,8 @@
+<svg width="500" height="300" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="500" height="300" fill="#f8f8f8"/>
+  <rect x="50" y="50" width="400" height="200" fill="#eaeaea" stroke="#7e7e82" stroke-width="2"/>
+  <text x="250" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#7e7e82">
+    Фото сервисного центра
+  </text>
+  <circle cx="250" cy="120" r="20" fill="#ff3e79" opacity="0.3"/>
+</svg> 
