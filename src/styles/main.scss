@@ -1,0 +1,85 @@
+@use '_variables' as *;
+@use '_reset';
+@use '_fonts';
+@use '_utilities';
+@use '_layout';
+@use '_navigation';
+@use '_sidebar';
+@use '_content';
+@use '_swiper';
+@use '_buttons';
+@use '_modals';
+@use '_cards';
+
+
+.test-scss {
+  color: $color-primary;
+  background-color: $color-background;
+  padding: $spacing-md;
+  font-size: $font-size-base;
+}
+
+
+.swiper {
+  overflow: hidden;
+  
+  &-wrapper {
+    display: flex;
+  }
+  
+  &-slide {
+    flex-shrink: 0;
+    width: auto;
+  }
+}
+
+
+.main {
+  background-color: $color-background;
+  min-height: 100vh;
+}
+
+
+@media (max-width: #{$breakpoint-tablet - 1px}) {
+  .mainz {
+    padding: 0 $spacing-sm;
+  }
+  
+  .wrapper {
+    padding: 0 $spacing-sm;
+  }
+}
+
+
+@media (min-width: $breakpoint-tablet) and (max-width: #{$breakpoint-min-desktop - 1px}) {
+  .mainz {
+    padding: 0 $spacing-md;
+  }
+  
+  .wrapper {
+    padding: 0 $spacing-md;
+  }
+}
+
+
+@media (min-width: $breakpoint-min-desktop) {
+  .mainz {
+    padding: 0 $spacing-lg;
+  }
+  
+  .wrapper {
+    padding: 0 $spacing-lg;
+  }
+}
+
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+} 

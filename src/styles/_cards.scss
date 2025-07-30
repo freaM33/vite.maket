@@ -1,0 +1,624 @@
+@use "sass:color";
+@use '_variables' as *;
+
+
+.device-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-md;
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  transition: all $transition-fast;
+  height: 72px;
+  width: 240px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 62, 121, 0.1), transparent);
+    transition: left $transition-normal;
+  }
+  
+  &:hover,
+  &:focus {
+    color: $color-text-secondary;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    transform: scale(1.02);
+    outline: none;
+    
+    &::before {
+      left: 100%;
+    }
+  }
+  
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+  
+  &__title {
+    font-size: $font-size-base;
+    font-weight: 500;
+    color: $color-text-primary;
+    flex: 1;
+    margin-right: $spacing-sm;
+    position: relative;
+    z-index: 1;
+  }
+  
+  &__icon {
+    width: 32px;
+    height: 32px;
+    transition: transform $transition-fast;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+  
+  &:hover &__icon,
+  &:focus &__icon {
+    transform: translateX(4px);
+  }
+  
+  
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    height: 60px;
+    width: 200px;
+    padding: $spacing-sm;
+    
+    &__title {
+      font-size: $font-size-sm;
+      font-weight: 500;
+    }
+    
+    &__icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  
+  
+  @media (min-width: $breakpoint-tablet) {
+    height: 80px;
+    width: 280px;
+    padding: $spacing-lg;
+    
+    &__title {
+      font-size: $font-size-lg;
+    }
+    
+    &__icon {
+      width: 36px;
+      height: 36px;
+    }
+  }
+  
+  @media (min-width: $breakpoint-min-desktop) {
+    height: 88px;
+    width: 320px;
+    
+    &__title {
+      font-size: $font-size-lg;
+    }
+  }
+}
+
+
+.price-card {
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-md;
+  padding: $spacing-md;
+  margin-bottom: $spacing-sm;
+  transition: all $transition-fast ease;
+  transform: translateY(0);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 200px;
+  
+  &:hover {
+    color: $color-text-secondary;
+    box-shadow: $shadow-md;
+    transform: translateY(-2px);
+  }
+  
+  &__category {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    margin-bottom: $spacing-xs;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  &__title {
+    font-size: $font-size-base;
+    font-weight: 500;
+    color: $color-text-primary;
+    margin-bottom: $spacing-md;
+    line-height: $line-height-normal;
+  }
+  
+  &__price-label,
+  &__time-label {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    margin-bottom: $spacing-xs;
+  }
+  
+  &__price,
+  &__time {
+    font-size: $font-size-base;
+    font-weight: 500;
+    color: $color-text-primary;
+    margin-bottom: $spacing-md;
+  }
+  
+  &__order-btn {
+    margin-top: auto;
+    padding: $spacing-sm $spacing-md;
+    font-size: $font-size-sm;
+    font-weight: 500;
+    color: $color-white;
+    background-color: $color-primary;
+    border: none;
+    border-radius: $border-radius-sm;
+    cursor: pointer;
+    transition: all $transition-fast ease;
+    align-self: flex-end;
+    text-transform: uppercase;
+    
+    &:hover {
+      background-color: color.adjust($color-primary, $lightness: -10%);
+      transform: scale(1.02);
+    }
+  }
+  
+  
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    padding: $spacing-sm;
+    min-height: 180px;
+    
+    &__title {
+      font-size: $font-size-sm;
+      margin-bottom: $spacing-sm;
+    }
+    
+    &__price,
+    &__time {
+      font-size: $font-size-sm;
+      margin-bottom: $spacing-sm;
+    }
+    
+    &__order-btn {
+      font-size: $font-size-xs;
+      padding: $spacing-xs $spacing-sm;
+    }
+  }
+}
+
+
+.price-table-container {
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    display: none;
+  }
+}
+
+
+
+
+.brand-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all $transition-fast ease;
+  transform: scale(1);
+  height: 120px;
+  width: 100%;
+  box-shadow: none;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  
+  &:hover,
+  &:focus {
+    transform: scale(1.02);
+    outline: none;
+  }
+  
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+  
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: all $transition-fast;
+    position: relative;
+    z-index: 1;
+    min-width: 120px;
+    min-height: 80px;
+  }
+  
+  &:hover &__image,
+  &:focus &__image {
+    transform: scale(1.05);
+  }
+  
+  
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    height: 80px;
+    
+    &__image {
+      min-width: 80px;
+      min-height: 60px;
+    }
+  }
+  
+  
+  @media (min-width: $breakpoint-tablet) {
+    height: 100px;
+    
+    &__image {
+      min-width: 100px;
+      min-height: 70px;
+    }
+  }
+  
+  @media (min-width: $breakpoint-min-desktop) {
+    height: 112px;
+    
+    &__image {
+      min-width: 160px;
+      min-height: 90px;
+    }
+  }
+}
+
+
+.swiper__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  height: 120px;
+  min-width: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition-fast ease;
+  box-shadow: none;
+  
+  &:hover {
+    transform: scale(1.02);
+  }
+  
+  @media (min-width: $breakpoint-tablet) {
+    height: 100px;
+    min-width: 280px;
+    
+    .swiper__image {
+      min-width: 100px;
+      min-height: 70px;
+    }
+  }
+  
+  @media (min-width: $breakpoint-min-desktop) {
+    height: 112px;
+    min-width: 360px;
+    
+    .swiper__image {
+      min-width: 160px;
+      min-height: 90px;
+    }
+  }
+}
+
+.swiper__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: all $transition-fast;
+  min-width: 120px;
+  min-height: 80px;
+  
+  .swiper__link:hover & {
+    transform: scale(1.05);
+  }
+}
+
+
+.service-card {
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-md;
+  padding: $spacing-md;
+  margin-bottom: $spacing-sm;
+  transition: all $transition-fast ease;
+  transform: translateY(0);
+  
+  &:hover {
+    color: $color-text-secondary;
+    box-shadow: $shadow-md;
+    transform: translateY(-3px);
+  }
+  
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: 500;
+    color: $color-text-primary;
+    margin-bottom: $spacing-sm;
+  }
+  
+  &__description {
+    font-size: $font-size-base;
+    color: $color-text-secondary;
+    line-height: $line-height-relaxed;
+    margin-bottom: $spacing-md;
+  }
+  
+  &__price {
+    font-size: $font-size-base;
+    font-weight: 500;
+    color: $color-text-primary;
+    margin-bottom: $spacing-xs;
+  }
+  
+  &__time {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    margin-bottom: $spacing-md;
+  }
+  
+  &__button {
+    width: 100%;
+    padding: $spacing-sm;
+    font-size: $font-size-base;
+    font-weight: 500;
+    color: $color-white;
+    background-color: $color-primary;
+    border: none;
+    border-radius: $border-radius-sm;
+    cursor: pointer;
+    transition: all $transition-fast ease;
+    transform: scale(1);
+    
+    &:hover {
+      background-color: color.adjust($color-primary, $lightness: -10%);
+      transform: scale(1.02);
+    }
+  }
+  
+  
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    padding: $spacing-sm;
+    
+    &__title {
+      font-size: $font-size-base;
+    }
+    
+    &__description {
+      font-size: $font-size-sm;
+    }
+    
+    &__price {
+      font-size: $font-size-sm;
+    }
+    
+    &__button {
+      font-size: $font-size-sm;
+      padding: $spacing-xs $spacing-sm;
+    }
+  }
+} 
+
+
+.brands-grid {
+  margin-bottom: $spacing-md;
+  display: none;
+  
+  
+  @media (min-width: $breakpoint-tablet) {
+    display: block;
+  }
+  
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: $spacing-xs;
+    max-width: 100%;
+    
+    
+    .brand-card:nth-child(n+9) {
+      display: none;
+    }
+    
+    
+    .brands-grid.expanded & {
+      .brand-card:nth-child(n+9) {
+        display: flex;
+      }
+    }
+    
+    
+    @media (min-width: $breakpoint-tablet) {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: $spacing-sm;
+      max-width: calc(100vw - 48px);
+    }
+    
+    @media (min-width: $breakpoint-min-desktop) {
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: $spacing-md;
+      max-width: calc(100vw - 64px);
+    }
+    
+    @media (min-width: 1600px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+} 
+
+
+.device-grid {
+  display: none;
+  
+  @media (min-width: $breakpoint-tablet) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+    max-width: 100%;
+    
+    .device-card:nth-child(n+5) {
+      display: none;
+    }
+    
+    &.expanded {
+      .device-card:nth-child(n+5) {
+        display: flex;
+      }
+    }
+    
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: $spacing-md;
+      max-width: calc(100vw - 48px);
+    }
+    
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: $spacing-lg;
+      max-width: calc(100vw - 64px);
+    }
+    
+    @media (min-width: 1200px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .device-card {
+      width: 100%;
+      height: 72px;
+      padding: $spacing-md;
+      
+      &__title {
+        font-size: $font-size-base;
+        font-weight: 500;
+      }
+      
+      &__icon {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+}
+
+
+.device-slider-section {
+  
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    .device-show-all-btn {
+      display: none;
+    }
+  }
+  
+  @media (min-width: $breakpoint-tablet) {
+    .swiper.device-swiper {
+      display: none;
+    }
+    
+    
+    .device-show-all-btn {
+      display: flex;
+      align-items: center;
+      gap: $spacing-xs;
+      font-size: $font-size-base;
+      font-weight: 500;
+      color: $color-text-primary;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      margin-top: $spacing-md;
+      transition: color $transition-fast;
+      
+      &:hover {
+        color: $color-primary;
+      }
+      
+      &__text {
+        font-weight: 500;
+      }
+      
+      &__icon {
+        width: 24px;
+        height: 24px;
+        background-image: url('/icons/expand.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        transition: transform $transition-fast;
+      }
+      
+      &:hover &__icon {
+        transform: rotate(180deg);
+      }
+      
+      
+      @media (min-width: $breakpoint-tablet) {
+        font-size: $font-size-base;
+        margin-top: $spacing-md;
+        
+        &__icon {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+  }
+}
+
+
+.wrapper {
+  @media (min-width: $breakpoint-tablet) {
+    .swiper.brands-swiper {
+      display: none;
+    }
+  }
+}
+
+
+.last_section {
+  @media (min-width: $breakpoint-tablet) {
+    .swiper.price-swiper {
+      display: none;
+    }
+  }
+} 

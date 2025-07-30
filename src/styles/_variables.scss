@@ -1,0 +1,66 @@
+// Цвета
+$color-primary: #FF3E79;
+$color-secondary: #7E7E82;
+$color-text-primary: #1B1C21;
+$color-text-secondary: #7E7E82;
+$color-background: #F8F8F8;
+$color-white: #FFFFFF;
+$color-border: #EAEAEA;
+$color-hover: #B8FFEC;
+$color-accent-green: #41F6D7;
+$color-gradient-start: #F8F8F8;
+$color-gradient-end: transparent;
+
+// Размеры экранов
+$breakpoint-mobile: 320px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1440px;
+$breakpoint-min-desktop: 1366px;
+
+// Размеры шрифтов
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-base: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 24px;
+$font-size-2xl: 28px;
+$font-size-3xl: 32px;
+
+// Межстрочные интервалы
+$line-height-tight: 1.2;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.8;
+
+// Отступы
+$spacing-xs: 8px;
+$spacing-sm: 16px;
+$spacing-md: 24px;
+$spacing-lg: 32px;
+$spacing-xl: 48px;
+$spacing-2xl: 64px;
+
+// Радиусы скругления
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 16px;
+$border-radius-xl: 24px;
+
+// Тени
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+$shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+// Переходы
+$transition-fast: 0.2s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Размеры карточек
+$card-width-mobile: 240px;
+$card-width-tablet: 280px;
+$card-width-desktop: 320px;
+
+// Высота карточек
+$card-height-mobile: 72px;
+$card-height-tablet: 80px;
+$card-height-desktop: 88px; 

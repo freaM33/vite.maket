@@ -1,0 +1,493 @@
+@use '_variables' as *;
+
+.swiper {
+  overflow: hidden;
+  position: relative;
+  margin-bottom: $spacing-md;
+  
+  &-wrapper {
+    display: flex;
+    transition: transform $transition-normal;
+    gap: 4px;
+    align-items: stretch;
+  }
+  
+  &-slide {
+    flex-shrink: 0;
+    width: auto;
+    display: flex;
+  }
+  
+  &__image {
+    width: 100%;
+    height: auto;
+    border-radius: $border-radius-lg;
+    display: block;
+  }
+  
+  &__link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  &__gradient {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 24px;
+    pointer-events: none;
+    z-index: 10;
+    
+    &--left {
+      left: 0;
+      background: linear-gradient(to right, $color-white 0%, transparent 100%);
+    }
+    
+    &:not(.swiper__gradient--left) {
+      right: 0;
+      background: linear-gradient(to left, $color-white 0%, transparent 100%);
+    }
+  }
+  
+  &-pagination {
+    position: absolute;
+    bottom: -$spacing-md;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: $spacing-xs;
+    z-index: 20;
+  }
+  
+  &-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba($color-text-secondary, 0.3);
+    cursor: pointer;
+    transition: background-color $transition-fast;
+    
+    &-active {
+      background-color: $color-text-secondary;
+    }
+  }
+  
+  &.expanded {
+    .swiper-wrapper {
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-start;
+    }
+    
+    .swiper__gradient {
+      display: none;
+    }
+    
+    .swiper-pagination {
+      display: none;
+    }
+    
+    .hidden-slide {
+      display: block;
+    }
+    
+    .swiper-slide {
+      flex: 0 0 auto;
+      margin-bottom: 8px;
+    }
+  }
+  
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    &-pagination {
+      bottom: -$spacing-sm;
+    }
+    
+    &-pagination-bullet {
+      width: 8px;
+      height: 8px;
+    }
+    
+    &__gradient {
+      width: 16px;
+    }
+  }
+  
+  @media (min-width: $breakpoint-tablet) {
+    &__gradient {
+      width: 32px;
+    }
+    
+    &-wrapper {
+      gap: 8px;
+    }
+  }
+  
+  @media (min-width: $breakpoint-min-desktop) {
+    &__gradient {
+      width: 40px;
+    }
+    
+    &-wrapper {
+      gap: 12px;
+    }
+  }
+}
+
+.hidden-slide {
+  display: none;
+  
+  .swiper.expanded & {
+    display: block;
+  }
+  
+  .wrapper.open-all & {
+    display: block;
+  }
+  
+  .device-slider-section.open-all & {
+    display: block;
+  }
+}
+
+.device-slider-section.open-all {
+  .swiper-wrapper {
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+  
+  .swiper__gradient {
+    display: none;
+  }
+  
+  .swiper-pagination {
+    display: none;
+  }
+  
+  .hidden-slide {
+    display: block;
+  }
+  
+  .swiper-slide {
+    flex: 0 0 auto;
+    margin-bottom: $spacing-md;
+  }
+}
+
+.show-all-btn,
+.brands-show-all-btn,
+.device-show-all-btn {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  font-size: $font-size-base;
+  font-weight: 500;
+  color: $color-text-primary;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $spacing-sm $spacing-md;
+  margin-top: $spacing-md;
+  transition: color $transition-fast;
+  
+  &:hover {
+    color: $color-primary;
+  }
+  
+  &__text {
+    font-weight: 500;
+  }
+  
+  &__icon {
+    width: 24px;
+    height: 24px;
+    background-image: url('/icons/expand.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: transform $transition-fast;
+  }
+  
+  &:hover &__icon {
+    transform: rotate(180deg);
+  }
+  
+  .swiper.expanded &__icon,
+  .wrapper.open-all &__icon,
+  .device-slider-section.open-all &__icon {
+    transform: rotate(180deg);
+  }
+  
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    display: none;
+  }
+  
+  @media (min-width: $breakpoint-tablet) {
+    display: flex;
+  }
+  
+  @media (min-width: $breakpoint-tablet) {
+    font-size: $font-size-base;
+    
+    &__icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.brands-header,
+.device-slider-header,
+.price-slider-header {
+  margin-bottom: $spacing-lg;
+  
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: 700;
+    color: $color-text-primary;
+    margin: 0;
+    position: relative;
+  }
+  
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    margin-bottom: $spacing-md;
+    
+    &__title {
+      font-size: $font-size-lg;
+    }
+  }
+  
+  @media (min-width: $breakpoint-min-desktop) {
+    &__title {
+      font-size: $font-size-2xl;
+    }
+  }
+}
+
+.price-slider-title {
+  font-size: $font-size-xl;
+  font-weight: 700;
+  color: $color-text-primary;
+  margin: 0 0 $spacing-lg 0;
+  
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-md;
+  }
+  
+  @media (min-width: $breakpoint-min-desktop) {
+    font-size: $font-size-2xl;
+  }
+}
+
+.brands-swiper {
+  display: block;
+  
+  @media (min-width: $breakpoint-tablet) {
+    display: none;
+  }
+  
+  .swiper-slide {
+    min-width: 280px;
+    max-width: 280px;
+    
+    @media (max-width: #{$breakpoint-tablet - 1px}) {
+      min-width: 200px;
+      max-width: 200px;
+    }
+    
+    @media (min-width: $breakpoint-tablet) {
+      min-width: 280px;
+      max-width: 280px;
+    }
+    
+    @media (min-width: $breakpoint-min-desktop) {
+      min-width: 360px;
+      max-width: 360px;
+    }
+  }
+  
+  .brand-card {
+    width: 100%;
+    height: 120px;
+    
+    @media (max-width: #{$breakpoint-tablet - 1px}) {
+      height: 80px;
+      width: 200px;
+    }
+    
+    @media (min-width: $breakpoint-tablet) {
+      height: 100px;
+    }
+    
+    @media (min-width: $breakpoint-min-desktop) {
+      height: 120px;
+    }
+  }
+  
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    .swiper-wrapper {
+      padding: 0 $spacing-sm;
+    }
+    
+    .swiper-pagination {
+      bottom: -$spacing-md;
+    }
+    
+    .swiper__gradient {
+      width: 24px;
+      height: 100%;
+    }
+  }
+}
+
+.device-swiper {
+  display: block;
+  
+  @media (min-width: $breakpoint-tablet) {
+    display: none;
+  }
+  
+  .swiper-slide {
+    min-width: 240px;
+    max-width: 240px;
+    
+    @media (max-width: #{$breakpoint-tablet - 1px}) {
+      min-width: 200px;
+      max-width: 200px;
+    }
+    
+    @media (min-width: $breakpoint-tablet) {
+      min-width: 280px;
+      max-width: 280px;
+    }
+    
+    @media (min-width: $breakpoint-min-desktop) {
+      min-width: 320px;
+      max-width: 320px;
+    }
+  }
+  
+  .device-card {
+    width: 100%;
+    height: 72px;
+    
+    @media (max-width: #{$breakpoint-tablet - 1px}) {
+      height: 60px;
+      width: 200px;
+    }
+    
+    @media (min-width: $breakpoint-tablet) {
+      height: 80px;
+    }
+    
+    @media (min-width: $breakpoint-min-desktop) {
+      height: 88px;
+    }
+  }
+  
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    .swiper-wrapper {
+      gap: 8px;
+    }
+    
+    .swiper-pagination {
+      bottom: -$spacing-sm;
+    }
+    
+    .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+    }
+    
+    .swiper__gradient {
+      width: 16px;
+    }
+  }
+}
+
+.price-swiper {
+  display: none;
+  
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    display: block;
+    margin-top: $spacing-lg;
+  }
+  
+  @media (min-width: $breakpoint-tablet) {
+    display: none;
+  }
+  
+  .swiper-slide {
+    min-width: 280px;
+    max-width: 280px;
+
+    @media (max-width: #{$breakpoint-tablet - 1px}) {
+      min-width: 240px;
+      max-width: 240px;
+    }
+    
+    @media (min-width: $breakpoint-tablet) {
+      min-width: 320px;
+      max-width: 320px;
+    }
+    
+    @media (min-width: $breakpoint-min-desktop) {
+      min-width: 360px;
+      max-width: 360px;
+    }
+  }
+  
+  .price-card {
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+    
+    @media (max-width: #{$breakpoint-tablet - 1px}) {
+      min-height: 180px;
+      padding: $spacing-sm;
+      
+      &__title {
+        font-size: $font-size-sm;
+      }
+      
+      &__price,
+      &__time {
+        font-size: $font-size-sm;
+      }
+      
+      &__order-btn {
+        font-size: $font-size-xs;
+        padding: $spacing-xs $spacing-sm;
+      }
+    }
+    
+    @media (min-width: $breakpoint-tablet) {
+      min-height: 220px;
+    }
+    
+    @media (min-width: $breakpoint-min-desktop) {
+      min-height: 240px;
+    }
+  }
+  
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    .swiper-wrapper {
+      gap: 8px;
+    }
+    
+    .swiper-pagination {
+      bottom: -$spacing-sm;
+    }
+    
+    .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+    }
+    
+    .swiper__gradient {
+      width: 16px;
+    }
+  }
+} 

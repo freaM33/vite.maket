@@ -1,0 +1,115 @@
+@use '_variables' as *;
+
+
+.main {
+  min-height: 100vh;
+  background-color: $color-background;
+  
+  @media (min-width: $breakpoint-min-desktop) {
+    max-width: 1440px;
+    margin: 0 auto;
+    margin-left: 320px;
+  }
+}
+
+
+.wrapper {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 $spacing-sm;
+  
+  @media (min-width: $breakpoint-tablet) {
+    padding: 0 $spacing-md;
+  }
+  
+  @media (min-width: $breakpoint-min-desktop) {
+    padding: 0 $spacing-lg;
+  }
+}
+
+
+.section {
+  margin-bottom: $spacing-xl;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 $spacing-sm;
+  
+  @media (min-width: $breakpoint-tablet) {
+    padding: 0 $spacing-md;
+  }
+  
+  @media (min-width: $breakpoint-min-desktop) {
+    padding: 0 $spacing-lg;
+  }
+}
+
+
+.mainz {
+  background-color: $color-background;
+  min-height: 100vh;
+  padding: 0 $spacing-sm;
+  
+  @media (min-width: $breakpoint-tablet) {
+    padding: 0 $spacing-md;
+  }
+  
+  @media (min-width: $breakpoint-min-desktop) {
+    padding: 0 $spacing-lg;
+    margin-left: 0;
+  }
+}
+
+
+.device-slider-section,
+.last_section {
+  background-color: $color-white;
+  border-radius: $border-radius-lg;
+  margin: $spacing-lg 0;
+  padding: $spacing-lg;
+  
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    margin: $spacing-md 0;
+    padding: $spacing-md;
+  }
+}
+
+
+.brands-header,
+.device-slider-header,
+.price-slider-header {
+  margin-bottom: $spacing-lg;
+  
+      &__title {
+      font-size: $font-size-xl;
+      font-weight: 700;
+      color: $color-text-primary;
+      margin: 0;
+      position: relative;
+      padding-left: 0;
+    
+
+  }
+  
+
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    margin-bottom: $spacing-md;
+    
+    &__title {
+      font-size: $font-size-lg;
+    }
+  }
+  
+  @media (min-width: $breakpoint-min-desktop) {
+    &__title {
+      font-size: $font-size-2xl;
+    }
+  }
+} 

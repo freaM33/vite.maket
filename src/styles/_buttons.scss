@@ -1,0 +1,593 @@
+@use "sass:color";
+@use '_variables' as *;
+
+// Базовые кнопки
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-xs;
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-base;
+  font-weight: 500;
+  line-height: $line-height-normal;
+  color: $color-text-primary;
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+  transition: all $transition-fast ease;
+  transform: translateY(0);
+  text-decoration: none;
+  
+  &:hover {
+    color: $color-text-secondary;
+    transform: translateY(-1px);
+  }
+  
+  &:active {
+    transform: translateY(1px);
+  }
+  
+  &--primary {
+    background-color: $color-primary;
+    color: $color-white;
+    border-color: $color-primary;
+    
+    &:hover {
+      background-color: color.adjust($color-primary, $lightness: -10%);
+      border-color: color.adjust($color-primary, $lightness: -10%);
+    }
+  }
+  
+  &--secondary {
+    background-color: transparent;
+    color: $color-primary;
+    border-color: $color-primary;
+    
+    &:hover {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+  }
+  
+  &--burger {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: $color-primary;
+    border: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/icons/burger.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 35px 35px;
+    
+    &:hover {
+      color: $color-text-secondary;
+    }
+    
+    @media (min-width: $breakpoint-tablet) and (max-width: #{$breakpoint-min-desktop - 1px}) {
+      width: 50px;
+      height: 50px;
+      background-size: 35px 35px;
+    }
+    
+    @media (min-width: $breakpoint-min-desktop) {
+      width: 44px;
+      height: 44px;
+      background-size: 35px 35px;
+      
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+  
+  &--call {
+    background-image: url('/icons/call.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 35px 35px;
+    border: none;
+    transition: all $transition-fast ease;
+    transform: scale(1);
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  
+  &--chat {
+    background-image: url('/icons/chat.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 35px 35px;
+    border: none;
+    transition: all $transition-fast ease;
+    transform: scale(1);
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  
+  &--profile {
+    background-image: url('/icons/profile.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 35px 35px;
+    border: none;
+    transition: all $transition-fast ease;
+    transform: scale(1);
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  
+  &--repair {
+    background-image: url('/icons/repair.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 35px 35px;
+    border: none;
+    transition: all $transition-fast ease;
+    transform: scale(1);
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  
+  &--status {
+    background-image: url('/icons/checkstatus.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 35px 35px;
+    border: none;
+    transition: all $transition-fast ease;
+    transform: scale(1);
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  
+  @media (min-width: $breakpoint-tablet) and (max-width: #{$breakpoint-min-desktop - 1px}) {
+    &--repair,
+    &--status {
+      background-size: 35px 35px;
+    }
+  }
+  
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    font-size: $font-size-sm;
+    padding: $spacing-xs $spacing-sm;
+    
+    &--burger {
+      width: 40px;
+      height: 40px;
+      background-size: 18px 18px;
+      background-color: $color-primary;
+      border: none;
+    }
+  }
+}
+
+
+.nav .action-btn.btn {
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    width: 40px;
+    height: 40px;
+    background-color: $color-primary;
+    border: none;
+    border-radius: 50%;
+    margin: 0 4px;
+    padding: 0;
+    position: relative;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    &:hover {
+      background-color: color.adjust($color-primary, $lightness: -10%);
+    }
+  }
+}
+
+
+.nav .btn--burger {
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    width: 40px;
+    height: 40px;
+    background-color: $color-primary;
+    border: none;
+    border-radius: 50%;
+    margin: 0 4px;
+    padding: 0;
+    position: relative;
+    
+    background-image: url(/icons/burger.svg);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    &:hover {
+      background-color: color.adjust($color-primary, $lightness: -10%);
+    }
+  }
+}
+
+
+.nav .action-btn.btn--call {
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    background-image: url(/icons/call.svg);
+  }
+}
+
+.nav .action-btn.btn--chat {
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    background-image: url(/icons/chat.svg);
+  }
+}
+
+.nav .action-btn.btn--profile {
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    background-image: url(/icons/profile.svg);
+  }
+}
+
+.nav .action-btn.btn--repair {
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    background-image: url(/icons/repair.svg);
+  }
+}
+
+.nav .action-btn.btn--status {
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    background-image: url(/icons/checkstatus.svg);
+  }
+}
+
+
+.icon {
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  display: inline-block;
+  
+  &--burger {
+    background-image: url('/icons/burger.svg');
+  }
+  
+  &--search {
+    background-image: url('/icons/search.svg');
+  }
+  
+  &--call {
+    background-image: url('/icons/call.svg');
+  }
+  
+  &--chat {
+    background-image: url('/icons/chat.svg');
+  }
+  
+  &--profile {
+    background-image: url('/icons/profile.svg');
+  }
+  
+  &--repair {
+    background-image: url('/icons/repair.svg');
+  }
+  
+  &--status {
+    background-image: url('/icons/checkstatus.svg');
+  }
+  
+  &--close {
+    background-image: url('/icons/close.svg');
+  }
+  
+  &--expand {
+    background-image: url('/icons/expand.svg');
+  }
+  
+  &--go {
+    background-image: url('/icons/go.svg');
+  }
+  
+
+  &--sm {
+    width: 16px;
+    height: 16px;
+  }
+  
+  &--lg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  &--xl {
+    width: 32px;
+    height: 32px;
+  }
+  
+
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    &--sm {
+      width: 16px;
+      height: 16px;
+    }
+    
+    &--lg {
+      width: 22px;
+      height: 22px;
+    }
+    
+    &--xl {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+
+.round-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  cursor: pointer;
+  transition: all $transition-fast;
+  
+  &:hover {
+    color: $color-text-secondary;
+  }
+  
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    width: 40px;
+    height: 40px;
+    
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  
+
+  @media (min-width: $breakpoint-min-desktop) {
+    width: 44px;
+    height: 44px;
+    
+    .icon {
+      width: 22px;
+      height: 22px;
+    }
+    
+    &:hover {
+      color: $color-text-secondary;
+      transform: scale(1.05);
+    }
+  }
+}
+
+
+.btn__text {
+  margin-right: $spacing-sm;
+  font-size: $font-size-base;
+  font-weight: 500;
+  color: $color-text-primary;
+}
+
+.btn__icon-circle {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.btn__icon {
+  width: 42px;
+  height: 42px;
+  display: block;
+}
+
+
+.main__settings .btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+  
+  &--repair,
+  &--status {
+    background: none;
+    background-image: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all $transition-fast;
+    font-weight: 500;
+    color: $color-text-primary;
+    
+    &:hover {
+      color: $color-text-secondary;
+    }
+  }
+}
+
+
+@media (max-width: #{$breakpoint-tablet - 1px}) {
+  .main__settings {
+    display: none;
+  }
+}
+
+
+
+
+@media (min-width: $breakpoint-min-desktop) {
+  .main__settings .btn {
+    &--repair,
+    &--status {
+      padding: $spacing-sm $spacing-lg;
+      font-size: $font-size-base;
+      font-weight: 500;
+      
+      .btn__text {
+        margin-right: $spacing-sm;
+      }
+      
+      .btn__icon-circle {
+        width: 24px;
+        height: 24px;
+      }
+      
+      .btn__icon {
+        width: 42px;
+        height: 42px;
+      }
+      
+      &:hover {
+        color: $color-text-secondary;
+        transform: translateY(-1px);
+        box-shadow: $shadow-sm;
+      }
+    }
+  }
+}
+
+
+.brands-show-all-btn {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: $font-size-base;
+  font-weight: 500;
+  color: $color-text-primary;
+  padding: $spacing-sm 0;
+  transition: all $transition-fast;
+  
+  &:hover {
+    color: $color-text-secondary;
+  }
+  
+  &__text {
+    font-size: $font-size-base;
+    font-weight: 500;
+  }
+  
+  &__icon {
+    width: 24px;
+    height: 24px;
+    background-image: url('/icons/expand.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: transform $transition-fast;
+  }
+  
+
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    display: none;
+  }
+  
+
+  @media (min-width: $breakpoint-tablet) {
+    font-size: $font-size-base;
+    
+    &__text {
+      font-size: $font-size-base;
+    }
+    
+    &__icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+
+.device-show-all-btn {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: $font-size-base;
+  font-weight: 500;
+  color: $color-text-primary;
+  padding: $spacing-sm 0;
+  transition: all $transition-fast;
+  
+  &:hover {
+    color: $color-text-secondary;
+  }
+  
+  &__text {
+    font-size: $font-size-base;
+    font-weight: 500;
+  }
+  
+  &__icon {
+    width: 24px;
+    height: 24px;
+    background-image: url('/icons/expand.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: transform $transition-fast;
+  }
+  
+  
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    display: none;
+  }
+  
+
+  @media (min-width: $breakpoint-tablet) {
+    font-size: $font-size-base;
+    
+    &__text {
+      font-size: $font-size-base;
+    }
+    
+    &__icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+} 
+
+
+.brands-show-all-btn.expanded .brands-show-all-btn__icon {
+  transform: rotate(180deg);
+}
+
+
+.device-show-all-btn.expanded .device-show-all-btn__icon {
+  transform: rotate(180deg);
+} 
